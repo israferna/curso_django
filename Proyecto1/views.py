@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import Template, Context
 from django.template.loader import get_template
+from django.shortcuts import render
 import datetime
 
 class Persona(object):
@@ -18,23 +19,21 @@ def saludo(request): # primera vista
     #doc_externo=open("/home/israferna/Documents/VisualStudio/ProyectosDjango/Proyecto1/Proyecto1/plantillas/miplantilla.html")
     #plt=Template(doc_externo.read())
     #doc_externo.close()
-    doc_externo=get_template('miplantilla.html')
+    #doc_externo=get_template('miplantilla.html')
 
 
-    temario=["Modelos",
-             "Plantillas",
-             "Comentarios",
-             "Contextos"]
+    temario=["Modelos","Plantillas","Formularios","Vistas"]
 
-    ctx=Context({
-        "nombre_persona":p1.nombre,
+    diccionario={"nombre_persona":p1.nombre,
         "apellido_persona":p1.apellido, 
         "fecha":fecha_actual,
-        "temas":temario})
+        "temas":temario}
 
-    documento=doc_externo.render(ctx)
+    #documento=doc_externo.render(ctx)
 
-    return HttpResponse(documento)
+    #return HttpResponse(documento)
+    return render(request,"miplantilla.html",diccionario)
+
 
 def despedida(request):
 

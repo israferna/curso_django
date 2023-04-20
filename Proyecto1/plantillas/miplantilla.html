@@ -1,5 +1,9 @@
 <html>
     <body>
+
+         {% include "superior/barra.html" %}
+
+
         <h2 style="color: red">Hola alumnos estamos viendo nuestra primera plantilla</h2>
         <p>El nombre del profesor es: {{nombre_persona}} {{apellido_persona}}</p>
         <p>Estamos viendo esto a fecha {{fecha.day}}-{{fecha.month}}-{{fecha.year}}</p>
@@ -8,8 +12,9 @@
         en una lista desordenada
         {% endcomment %}
         <ul>
+        
         {% for elTema in temas %}
-            <li>elTema</li>
+            <li> {{elTema}} </li>
         {% endfor %}
         </ul>
     </body>
